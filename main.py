@@ -13,17 +13,17 @@ from random import randint
 from time import sleep
 from pygame import mixer
 
-#Iniciando o pygame
+#Iniciando o pygame e mixer
 pygame.init()
 mixer.init()
 
-#tela
+#Tamanho de tela
 tela_largura = 700
 tela_altura = 500
 tela = pygame.display.set_mode((tela_largura, tela_altura))
 pygame.display.set_caption('JOKENPO')
 
-#Cores
+#Cores usadas
 vermelho = (255, 0, 0)
 preto = (0, 0, 0)
 verde = (0, 255, 0)
@@ -42,7 +42,7 @@ img_papel = pygame.transform.scale(imgPapel, (300, 150))
 imgTesoura = pygame.image.load('tesoura.png').convert_alpha()
 img_tesoura = pygame.transform.scale(imgTesoura, (300, 150))
 
-#Definindo a musica
+#Definindo a musica a de fundo
 mixer.music.load('song.mp3')
 mixer.music.play(-1)
 
@@ -117,7 +117,7 @@ def tela_escolha():
 #Resultado caso a escolha for PEDRA
 def pedra_result():
 
-    #Random da jogada do computador
+    #Resposta da IA
     sistema = randint(0, 2)
 
     sair = False
@@ -164,7 +164,7 @@ def pedra_result():
 #Resultado caso a escolha for PAPEL
 def papel_result():
     
-    #Random da jogada do computador
+    #Resposta da IA
     sistema = randint(0, 2)
 
     sair = False
@@ -212,7 +212,7 @@ def papel_result():
 #Resultado caso a escolha for TESOURA
 def tesoura_result():
 
-    #Random da jogada do computador
+    #Resposta da IA
     sistema = randint(0, 2)
 
     sair = False
@@ -275,7 +275,7 @@ def volt_button(msg, x, y, w, h, ic, ac, action=None):
     TextRect.center = ((x+(w/2), (y+(h/2))))
     tela.blit(TextSurf, TextRect)
 
-#Jogar e sair da tela de inicio
+#"Jogar" e "Sair" da tela de inicio
 def button(msg, x, y, w, h, ic, ac, action=None):
     
     mouse = pygame.mouse.get_pos()
@@ -320,7 +320,7 @@ def tela_inicio():
         button('Sair', 500, 400, 100, 50, (200, 0, 0), vermelho, 'Sair')
         
         pygame.display.update()
-
+#Funções
 tela_inicio()
 pygame.quit()
 quit()
